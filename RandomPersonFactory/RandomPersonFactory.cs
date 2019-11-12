@@ -125,11 +125,11 @@ namespace easygoingsoftware.People
             switch (gender.Substring(0, 1).ToUpper())
             {
                 case "M":
-                    return WordLists.MaleTitleList.GetRandom();
+                    return WordLists.MaleTitles.GetItem();
                 case "F":
-                    return WordLists.FemaleTitleList.GetRandom();
+                    return WordLists.FemaleTitles.GetItem();
                 default:
-                    return WordLists.MaleTitleList.Union(WordLists.FemaleTitleList).ToArray().GetRandom();
+                    return RNG.R.NextDouble() > 0.5 ? WordLists.MaleTitles.GetItem() : WordLists.FemaleTitles.GetItem();
             }
         }
 
@@ -150,7 +150,7 @@ namespace easygoingsoftware.People
         /// <returns>Gender</returns>
         private static string GetGender()
         {
-            return WordLists.GenderList.GetRandom();
+            return WordLists.Genders.GetItem();
         }
 
         /// <summary>

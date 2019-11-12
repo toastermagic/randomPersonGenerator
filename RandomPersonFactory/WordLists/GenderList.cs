@@ -5,13 +5,11 @@ namespace easygoingsoftware.People
         /// <summary>
         /// Binary list of genders ie. Male, Female...
         /// </summary>
-        public static string[] GenderList
-        {
-            get
-            {
-                return new string[] { 
-                    "Female",
-                    "Male",
+        public static WeightedList<string, double> Genders {
+            get {
+                return new WeightedList<string, double> {
+                    { "Male", 0.00 },
+                    { "Female", 0.50 },
                 };
             }
         }

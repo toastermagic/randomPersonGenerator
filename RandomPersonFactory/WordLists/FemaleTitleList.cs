@@ -5,19 +5,15 @@ namespace easygoingsoftware.People
         /// <summary>
         /// List of 'female' titles ie. Mrs, Dr, Rev...
         /// </summary>
-        public static string[] FemaleTitleList
-        {
-            get
-            {
-                return new string[] { 
-                    "Miss",
-                    "Ms",
-                    "Ms",
-                    "Mrs",
-                    "Mrs",
-                    "Dr",
-                    "Prof",
-                    "Rev",
+        public static WeightedList<string, double> FemaleTitles {
+            get {
+                return new WeightedList<string, double> {
+                    { "Miss", 0.00 },
+                    { "Ms", 0.20},
+                    { "Mrs", 0.40 },
+                    { "Dr", 0.75 },
+                    { "Prof", 0.85 },
+                    { "Rev", 0.95 },
                 };
             }
         }

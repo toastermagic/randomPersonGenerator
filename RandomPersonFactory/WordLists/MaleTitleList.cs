@@ -2,20 +2,13 @@ namespace easygoingsoftware.People
 {
     public static partial class WordLists
     {
-        /// <summary>
-        /// List of 'male' titles ie. Mr, Dr, Rev...
-        /// </summary>
-        public static string[] MaleTitleList
-        {
-            get
-            {
-                return new string[] { 
-                    "Mr",
-                    "Mr",
-                    "Mr",
-                    "Dr",
-                    "Prof",
-                    "Rev",
+        public static WeightedList<string, double> MaleTitles {
+            get {
+                return new WeightedList<string, double> {
+                    { "Mr", 0.00 },
+                    { "Dr", 0.75 },
+                    { "Prof", 0.85 },
+                    { "Rev", 0.95 },
                 };
             }
         }
