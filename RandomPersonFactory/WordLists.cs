@@ -12,22 +12,30 @@ namespace easygoingsoftware.People
                 return new string[] {
                     "Accountants",
                     "Broadcasting",
+                    "Carpentry",
+                    "Decoration",
                     "Experiences",
                     "Financial",
+                    "Gaming",
                     "Hostage Negotiation Services",
                     "Industrial",
                     "Insurance",
+                    "Juvenile Detention",
+                    "Legal",
                     "Limited",
                     "Logistics",
                     "Market",
                     "Marketing",
                     "Media Services",
+                    "Office Rental",
+                    "Property Management",
                     "Recruitment",
                     "Research Group",
                     "Services",
                     "Shipping",
                     "Supplies",
                     "Transport",
+                    "Universal Exports",
                 };
             }
         }
@@ -2012,8 +2020,10 @@ namespace easygoingsoftware.People
         {
             get
             {
-                return new string[] { "Male",
-         "Female" };
+                return new string[] { 
+                    "Female",
+                    "Male",
+                };
             }
         }
 
