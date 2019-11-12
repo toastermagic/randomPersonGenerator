@@ -11,7 +11,7 @@
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/ConsoleApp/bin/Debug/netcoreapp2.2/people.dll",
-            "args": ["-f", "csv","--number","128","-o","c:\\temp\\peeps.csv"],
+            "args": ["-f", "csv","--number","1000","-o","c:\\temp\\1000people.csv"],
             "cwd": "${workspaceFolder}",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",

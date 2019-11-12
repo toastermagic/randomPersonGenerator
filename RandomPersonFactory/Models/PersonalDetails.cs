@@ -22,7 +22,10 @@ namespace easygoingsoftware.People
         public string Town { get; set; }
         public string City { get; set; }
         public string PostCode { get; set; }
-
+        public string JobTitle { get; set; }
+        public string CompanyName { get; set; }
+        public string Email => $"{FirstName.ToLower()}.{LastName.Replace("'", "").ToLower()}@invalidemail.com";
+        public string Username => $"{FirstName.Substring(0, 1).ToLower()}{LastName.Replace("'","").ToLower()}";
         public string StreetAddress => string.Join(", ", new List<string> {
             FlatApartmentNumber,
             ResidenceNumber,
@@ -32,19 +35,6 @@ namespace easygoingsoftware.People
             PostCode
         }.Where(e => !string.IsNullOrEmpty(e)));
         
-        public string JobTitle { get; set; }
-        public string CompanyName { get; set; }
-
-        public string Email
-        {
-            get { return $"{FirstName.ToLower()}.{LastName.Replace("'", "").ToLower()}@invalidemail.com"; }
-        }
-
-        public string Username
-        {
-            get { return $"{FirstName.Substring(0, 1).ToLower()}{LastName.ToLower()}"; }
-        }
-
         public string HeaderRow
         {
             get
