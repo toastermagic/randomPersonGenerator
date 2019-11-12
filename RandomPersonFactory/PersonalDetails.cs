@@ -90,9 +90,6 @@ namespace easygoingsoftware.People
                 $"\"{this.Town}\"",
                 $"\"{this.City}\"",
                 $"\"{this.PostCode}\"",
-                $"\"{this.Town}\"",
-                $"\"{this.City}\"",
-                $"\"{this.PostCode}\"",
                 $"\"{this.JobTitle}\"",
                 $"\"{this.CompanyName}\""
             });
