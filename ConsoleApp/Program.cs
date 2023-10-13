@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using easygoingsoftware.People;
 using McMaster.Extensions.CommandLineUtils;
 using Newtonsoft.Json;
@@ -29,19 +30,30 @@ namespace Whatever
                 var random = randomOption.HasValue() ? true : false;
                 var filename = outputOption.HasValue() ? outputOption.Value() : $"{AppDomain.CurrentDomain.BaseDirectory}people.{format}";
 
-                var people = RandomPersonFactory.GetPeople(numPeople, random);
-
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter($"{filename}"))
                 {
+                    if (format == "csv")
+                    {
+                        file.WriteLine(new PersonalDetails().HeaderRow);
+                    }
+                    var people = new List<PersonalDetails>();
+                    for (var i = 0; i < numPeople; i++)
+                    {
+                        var p = RandomPersonFactory.GetRandomPerson(random ? null : i);
+                        if (format == "json")
+                        {
+                            people.Add(p);
+                        }
+                        else
+                        {
+                            file.WriteLine(p.ToCSV());
+                            await file.FlushAsync();
+                        }
+                    }
+
                     if (format == "json")
                     {
                         await file.WriteAsync(JsonConvert.SerializeObject(people));
-                    }
-                    else
-                    {
-                        file.WriteLine(new PersonalDetails().HeaderRow);
-                        people.ForEach(p => file.WriteLine(p.ToCSV()));
-                        await file.FlushAsync();
                     }
                 }
 

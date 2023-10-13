@@ -218,6 +218,8 @@ namespace easygoingsoftware.People
         {
             switch(seed)
             {
+                case null:
+                    break;
                 case int i: RNG.SetSeed(i);
                     break;
                 case string s: RNG.SetSeed(s);
@@ -237,11 +239,11 @@ namespace easygoingsoftware.People
         /// Generates list of randomised people, either seeded or entirely new each time
         /// </summary>
         /// <param name="int">Number of people</param>
-        /// <param name="seed">Any integer, string, Guid or byte array</param>
+        /// <param name="random">Set to true for random people</param>
         /// <returns>PersonalDetails</returns>
         public static List<PersonalDetails> GetPeople(int numberOfPeople, bool random = false) {
             var people = new List<PersonalDetails>();
-            for (var i = 0; i < 1000; i++)
+            for (var i = 0; i < numberOfPeople; i++)
             {
                 if (random) {
                     people.Add(RandomPersonFactory.GetRandomPerson());

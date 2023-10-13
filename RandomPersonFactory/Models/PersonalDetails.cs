@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 
 namespace easygoingsoftware.People
 {
@@ -25,7 +26,7 @@ namespace easygoingsoftware.People
         public string JobTitle { get; set; }
         public string CompanyName { get; set; }
         public string Email => $"{FirstName.ToLower()}.{LastName.Replace("'", "").ToLower()}@invalidemail.com";
-        public string Username => $"{FirstName.Substring(0, 1).ToLower()}{LastName.Replace("'","").ToLower()}";
+        public string Username => $"{FirstName.Substring(0, 1).ToLower()}{LastName.Replace("'", "").ToLower()}";
         public string StreetAddress => string.Join(", ", new List<string> {
             FlatApartmentNumber,
             ResidenceNumber,
@@ -34,7 +35,8 @@ namespace easygoingsoftware.People
             City,
             PostCode
         }.Where(e => !string.IsNullOrEmpty(e)));
-        
+
+        [IgnoreDataMember]
         public string HeaderRow
         {
             get
